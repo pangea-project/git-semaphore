@@ -7,8 +7,7 @@ node('master') {
             sh '[ -f Gemfile.lock ] || bundle install'
             sh 'bundle update'
         }
-        stage('Deploy') {
-            sh 'mkdir $HOME/git-semaphore || true'
+        stage('Checkout') {
             sh 'git checkout-index -a -f --prefix=$HOME/git-semaphore/'
         }
     } catch (e) {
