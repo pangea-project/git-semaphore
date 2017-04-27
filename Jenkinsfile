@@ -9,7 +9,7 @@ node('master') {
         }
         stage('Deploy') {
             sh 'mkdir $HOME/git-semaphore || true'
-            sh 'cp -rv ./. $HOME/git-semaphore'
+            sh 'git checkout-index -a -f --prefix=$HOME/git-semaphore/'
         }
     } catch (e) {
         stage('Notify') {
@@ -17,5 +17,6 @@ node('master') {
             sh 'env'
             sh 'IRC_CHANNEL=#pangea-monitoring ci-notify FAILURE'
         }
+        throw e
     }
 }
