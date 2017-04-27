@@ -9,6 +9,7 @@ node('master') {
         }
         stage('Test') {
             sh 'rake test'
+            junit 'test/reports/*.xml'
         }
         stage('Checkout') {
             sh 'git checkout-index -a -f --prefix=$HOME/git-semaphore/'
