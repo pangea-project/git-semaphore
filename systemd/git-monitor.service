@@ -5,7 +5,7 @@ After=network.target
 [Service]
 Type=simple
 Environment=HOME=/var/lib/jenkins
-ExecStart=/var/lib/jenkins/tooling3/git-monitor/git-monitor
+ExecStart=/var/lib/jenkins/git-semaphore/git-semaphore
 Restart=on-failure
 User=jenkins
 Group=jenkins
