@@ -10,6 +10,7 @@ node('master') {
         stage('Deploy') {
             sh 'mkdir $HOME/git-semaphore || true'
             sh 'git checkout-index -a -f --prefix=$HOME/git-semaphore/'
+            sh 'false'
         }
     } catch (e) {
         stage('Notify') {
