@@ -22,7 +22,7 @@ require 'drb/drb'
 
 # DRB Git Service Wrapper.
 module Service
-  SERVER_URI = 'druby://localhost:991235'.freeze
+  SERVER_URI = 'druby://localhost:991234'.freeze
 
   # @return DrbObject pointing to {Semaphore}
   def self.start
