@@ -1,7 +1,7 @@
 node('master') {
     try {
         // Set gem variables for Mobile CI.
-        if (env.GEM_PATH || env.GEM_HOME) {
+        if (!(env.GEM_PATH && env.GEM_HOME)) {
             environment {
                 GEM_PATH = sh 'ruby -rubygems -e "puts Gem.user_dir"'
                 GEM_HOME = "${env.GEM_PATH}:${env.HOME}/.gems/bundler"
