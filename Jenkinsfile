@@ -1,12 +1,13 @@
 node('master') {
     try {
         // Set gem variables for Mobile CI.
-        if (!(env.GEM_PATH && env.GEM_HOME)) {
-            environment {
-                GEM_PATH = sh 'ruby -rubygems -e "puts Gem.user_dir"'
-                GEM_HOME = "${env.GEM_PATH}:${env.HOME}/.gems/bundler"
-                PATH = "${env.GEM_HOME}/bin:${env.PATH}"
-            }
+        if (!(env.GEM_PATH || env.GEM_HOME)) {
+            echo 'Setting GEM paths to HOME for Mobile CI'
+            env.GEM_PATH = sh(script: 'ruby -rubygems -e "puts Gem.user_dir"',
+                              returnStdout: true).trim()
+            env.GEM_HOME = "${env.GEM_PATH}:${env.HOME}/.gems/bundler"
+            env.PATH = "${env.GEM_PATH}/bin:${env.PATH}"
+            sh 'env'
         }
 
         stage('Clone') {
