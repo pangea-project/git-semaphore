@@ -11,7 +11,7 @@ node('master') {
         }
 
         stage('Clone') {
-            git 'https://github.com/blue-systems/git-semaphore'
+            checkout scm
         }
         stage('Bundle') {
             sh '[ -f Gemfile.lock ] || bundle install'
