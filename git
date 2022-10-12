@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 #
-# Copyright (C) 2014-2016 Harald Sitter <sitter@kde.org>
+# Copyright (C) 2014-2022 Harald Sitter <sitter@kde.org>
 #
 # This library is free software; you can redistribute it and/or
 # modify it under the terms of the GNU Lesser General Public
@@ -24,10 +24,10 @@ require_relative 'lib/service'
 NETWORK_COMMANDS = %w(pull clone fetch push ls-remote).freeze
 HOSTS = {
   'git.debian.org' => :debian,
-  'anongit.kde.org' => :kde,
+  'invent.kde.org' => :kde,
   # Neon uses the same limit! Since the semaphore has 5 locks and the server
   # side limit is ~15 now we should be fine eitherway though.
-  'anongit.neon.kde.org' => :neon
+  'invent.kde.org/neon' => :neon
 }.freeze
 
 def run(args)
