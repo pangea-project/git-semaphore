@@ -29,7 +29,7 @@ class HostSemaphore
 
   # NB: anongit allows ~15 connections, BUT neon and kde come out
   #     of the same limit, so per-type we only allow less connection still.
-  MAX_LOCKS = 6
+  MAX_LOCKS = 1
 
   attr_reader :locks
 
